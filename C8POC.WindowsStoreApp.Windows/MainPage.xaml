@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="C8POC.WindowsStoreApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:C8POC.WindowsStoreApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+	<Page.TopAppBar>
+		<AppBar>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="15"/>
+				</Grid.ColumnDefinitions>
+				<TextBlock TextWrapping="Wrap" Name="TextBoxInformation" Text="Select a Rom, please..." VerticalAlignment="Center" FontSize="48" HorizontalAlignment="Center"/>
+				<Grid HorizontalAlignment="Left" Grid.Column="1" Height="64" VerticalAlignment="Bottom">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*	"/>
+				</Grid.RowDefinitions>
+					<TextBlock TextWrapping="Wrap" Name="TextBoxFPS" Text="TextBlock" HorizontalAlignment="Center" Margin="0,15,0,0"/>
+                    <ComboBox SelectionChanged="DropDownName_SelectionChanged" Name="DropDownQuality" FontFamily="Global User Interface" VerticalAlignment="Bottom" Grid.Row="1">
+                        <ComboBoxItem Content="Low" Height="100" Width="100"/>
+                        <ComboBoxItem Content="Medium" Height="100" Width="100" IsSelected="True"/>
+                        <ComboBoxItem Content="High" Height="100" Width="100" />
+                        <ComboBoxItem Content="Guerrero" Height="100" Width="100" />
+					</ComboBox>
+				</Grid>
+			</Grid>
+		</AppBar>
+	</Page.TopAppBar>
+	<Page.BottomAppBar>
+		<CommandBar>
+			<CommandBar.SecondaryCommands>
+				<AppBarButton Icon="Contact" Label="about">
+					<AppBarButton.Flyout>
+						<Flyout>
+							<StackPanel>
+								<TextBlock TextWrapping="Wrap" Text="Made by" FontSize="16"/>
+								<HyperlinkButton Content="http://github.com/alfranco" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Global User Interface" NavigateUri="http://github.com/alfranco"/>
+							</StackPanel>
+						</Flyout>
+					</AppBarButton.Flyout>
+				</AppBarButton>
+			</CommandBar.SecondaryCommands>
+			<AppBarButton Icon="OpenFile" Label="open" Click="AppBarButton_Click"/>
+		</CommandBar>
+	</Page.BottomAppBar>
+
+    <Grid Name="layout" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        
+        <Image Name="source" Stretch="Uniform" ></Image>
+        <MediaElement x:Name="bleep" AudioCategory="GameEffects" Source="Assets/bleep.mp3" AutoPlay="False" Visibility="Collapsed"/>
+        <!--<Image Name="imageBitmapBinding" Stretch="Uniform" />-->
+    </Grid> 
+</Page>
